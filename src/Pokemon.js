@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-
+import { useQuery } from 'react-query';
+import fetchPokemon from './fetchPokemon'
 
 const Pokemon = ({ id }) => {
-    return null;
+    const { data: pokemon, error } = useQuery(['pokemon', { id }], fetchPokemon);
 
     return !pokemon ? (
         <div>{error}</div>
